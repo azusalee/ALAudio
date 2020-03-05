@@ -8,6 +8,7 @@
 
 #import "ALAudioRecorder.h"
 #import <AVFoundation/AVFoundation.h>
+#import "LameTool.h"
 
 @interface ALAudioRecorder()<AVAudioRecorderDelegate>
 
@@ -82,6 +83,16 @@
 - (float)detectVolumn{
     [self.record updateMeters];
     return [self.record peakPowerForChannel:0];
+}
+
+- (NSURL *)getFinishFileUrl{
+    if (self.extType == ALAudioRecorderExtTypeMp3) {
+        /// 转成mp3
+        NSString *urlString = [LameTool audioToMP3:self.url.absoluteString isDeleteSourchFile:YES];
+        return [NSURL fileURLWithPath:urlString];
+    }else{
+        return self.url;
+    }
 }
 
 // - mark AVAudioDelegate

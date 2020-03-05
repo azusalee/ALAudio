@@ -61,6 +61,7 @@ typedef enum : NSUInteger {
     NSInteger dateTime = [NSDate now].timeIntervalSince1970;
     NSString *fileName = [NSString stringWithFormat:@"%ld.caf", dateTime];
     self.recorder = [[ALAudioRecorder alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", self.foloderPath, fileName]]];
+    self.recorder.extType = ALAudioRecorderExtTypeMp3;
     self.recorder.delegate = self;
     [self.recorder startRecord];
     self.label.text = @"松开完成录音";
@@ -98,7 +99,7 @@ typedef enum : NSUInteger {
 
 
 - (void)alAudio:(ALAudioRecorder*)recorder didRecordFinishWithTime:(NSTimeInterval)time{
-    
+    NSLog(@"%@", [recorder getFinishFileUrl]);
 }
 
 - (void)alAudio:(ALAudioRecorder *)recorder failWithError:(NSString *)errorString{

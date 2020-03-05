@@ -16,6 +16,8 @@
 		8CDBA8992410E9CB00265157 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CDBA8982410E9CB00265157 /* main.m */; };
 		8CDBA8A22410EA0800265157 /* ALAudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CDBA8A12410EA0800265157 /* ALAudioRecorder.m */; };
 		8CDBA8A62410EFA000265157 /* ALAudioRecordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CDBA8A52410EFA000265157 /* ALAudioRecordView.m */; };
+		8CDBA8AA2411043400265157 /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CDBA8A82411043400265157 /* libmp3lame.a */; };
+		8CDBA8AD2411045200265157 /* LameTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CDBA8AB2411045100265157 /* LameTool.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,10 @@
 		8CDBA8A12410EA0800265157 /* ALAudioRecorder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALAudioRecorder.m; sourceTree = "<group>"; };
 		8CDBA8A42410EFA000265157 /* ALAudioRecordView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALAudioRecordView.h; sourceTree = "<group>"; };
 		8CDBA8A52410EFA000265157 /* ALAudioRecordView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALAudioRecordView.m; sourceTree = "<group>"; };
+		8CDBA8A82411043400265157 /* libmp3lame.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmp3lame.a; sourceTree = "<group>"; };
+		8CDBA8A92411043400265157 /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lame.h; sourceTree = "<group>"; };
+		8CDBA8AB2411045100265157 /* LameTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LameTool.m; sourceTree = "<group>"; };
+		8CDBA8AC2411045100265157 /* LameTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LameTool.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CDBA8AA2411043400265157 /* libmp3lame.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +93,7 @@
 		8CDBA89F2410E9D500265157 /* ALAudio */ = {
 			isa = PBXGroup;
 			children = (
+				8CDBA8A72411043400265157 /* lib */,
 				8CDBA8A32410EF8700265157 /* UI */,
 				8CDBA8A02410EA0800265157 /* ALAudioRecorder.h */,
 				8CDBA8A12410EA0800265157 /* ALAudioRecorder.m */,
@@ -100,6 +108,17 @@
 				8CDBA8A52410EFA000265157 /* ALAudioRecordView.m */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		8CDBA8A72411043400265157 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				8CDBA8A82411043400265157 /* libmp3lame.a */,
+				8CDBA8A92411043400265157 /* lame.h */,
+				8CDBA8AC2411045100265157 /* LameTool.h */,
+				8CDBA8AB2411045100265157 /* LameTool.m */,
+			);
+			path = lib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,6 +191,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CDBA8AD2411045200265157 /* LameTool.m in Sources */,
 				8CDBA88E2410E9C900265157 /* ViewController.m in Sources */,
 				8CDBA8882410E9C900265157 /* AppDelegate.m in Sources */,
 				8CDBA8992410E9CB00265157 /* main.m in Sources */,
@@ -323,6 +343,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ALAudio/ALAudio/lib",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.al.ALAudio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -338,6 +362,10 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ALAudio/ALAudio/lib",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.al.ALAudio;
 				PRODUCT_NAME = "$(TARGET_NAME)";

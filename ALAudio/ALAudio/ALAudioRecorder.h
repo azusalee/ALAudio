@@ -10,6 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef enum : NSUInteger {
+    ALAudioRecorderExtTypeCaf = 0,
+    ALAudioRecorderExtTypeMp3
+} ALAudioRecorderExtType;
+
 @class ALAudioRecorder;
 @protocol ALAudioRecorderDelegate <NSObject>
 
@@ -21,11 +26,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ALAudioRecorder : NSObject
 
 @property (nonatomic, weak) id<ALAudioRecorderDelegate> delegate;
-
+@property (nonatomic, assign) ALAudioRecorderExtType extType;
 
 @property (nonatomic, readonly) NSURL *url;
 
 - (instancetype)initWithURL:(NSURL *)url;
+
+- (NSURL *)getFinishFileUrl;
 
 // 开始录音
 - (void)startRecord;
