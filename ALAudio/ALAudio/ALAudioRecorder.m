@@ -28,6 +28,15 @@
 }
 
 - (void)setup{
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    NSError *sessionError;
+    [session setCategory:AVAudioSessionCategoryPlayAndRecord error:&sessionError];
+    if(session == nil){
+        NSLog(@"Error creating session: %@", [sessionError description]);
+    }else{
+        [session setActive:YES error:nil];
+    }
+    
     NSDictionary *settingDic = @{// 编码格式
                                 AVFormatIDKey:@(kAudioFormatLinearPCM),
                                 // 采样率
@@ -35,7 +44,8 @@
                                 // 通道数
                                 AVNumberOfChannelsKey:@(2),
                                 // 录音质量
-                                AVEncoderAudioQualityKey:@(AVAudioQualityMin)
+                                AVEncoderAudioQualityKey:@(AVAudioQualityMin),
+                                AVLinearPCMIsFloatKey:@(NO)
                                 };
     NSError *error = nil;
     self.record = [[AVAudioRecorder alloc] initWithURL:self.url settings:settingDic error:&error];
