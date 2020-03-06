@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ALAudioRecordView : UIView
 
-@property (nonatomic, strong) NSString *foloderPath;
+@property (nonatomic, strong) NSString *folderPath;
 
 @end
 

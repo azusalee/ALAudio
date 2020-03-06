@@ -54,13 +54,13 @@ typedef enum : NSUInteger {
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    if (self.foloderPath == nil) {
-        self.foloderPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+    if (self.folderPath == nil) {
+        self.folderPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
     }
     self.touchState = ALAudioRecordViewTouchStateTouchIn;
     NSInteger dateTime = [NSDate now].timeIntervalSince1970;
     NSString *fileName = [NSString stringWithFormat:@"%ld.caf", dateTime];
-    self.recorder = [[ALAudioRecorder alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", self.foloderPath, fileName]]];
+    self.recorder = [[ALAudioRecorder alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", self.folderPath, fileName]]];
     self.recorder.extType = ALAudioRecorderExtTypeMp3;
     self.recorder.delegate = self;
     [self.recorder startRecord];
