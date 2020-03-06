@@ -99,7 +99,9 @@ typedef enum : NSUInteger {
 
 
 - (void)alAudio:(ALAudioRecorder*)recorder didRecordFinishWithTime:(NSTimeInterval)time{
-    NSLog(@"%@", [recorder getFinishFileUrl]);
+    //NSLog(@"%@", [recorder getFinishFileUrl]);
+    NSString *urlString = [recorder getFinishFileUrl].absoluteString;
+    [self.delegate alAudioView:self didRecordWithPath:urlString fileName:[urlString stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@/", self.folderPath] withString:@""]];
 }
 
 - (void)alAudio:(ALAudioRecorder *)recorder failWithError:(NSString *)errorString{
