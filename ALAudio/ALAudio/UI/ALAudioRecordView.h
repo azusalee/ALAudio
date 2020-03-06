@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class ALAudioRecordView;
 @protocol ALAudioRecordViewDelegate <NSObject>
 
-- (void)alAudioView:(ALAudioRecordView*)view didRecordWithPath:(NSString*)fullPath fileName:(NSString*)fileName;
+- (void)alAudioView:(ALAudioRecordView*)view didRecordWithPath:(NSString*)fullPath fileName:(NSString*)fileName time:(NSTimeInterval)time;
 
 @end
 
